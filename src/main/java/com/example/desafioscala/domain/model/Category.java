@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Categories {
+public class Category {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,18 +19,14 @@ public class Categories {
 	private String name;
 
 	@Enumerated(EnumType.STRING)
-	@NotBlank
 	private CategoryType type;
 
-	public Categories(@NotBlank String name, @NotBlank CategoryType type) {
-		super();
+	public void setName(String name) {
 		this.name = name;
-		this.type = type;
 	}
 
-	@Deprecated
-	public Categories() {
-		super();
+	public void setType(CategoryType type) {
+		this.type = type;
 	}
 
 	public long getId() {
